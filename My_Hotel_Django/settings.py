@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'My_Hotel_Django.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 load_dotenv()
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
-
+#
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -156,8 +156,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-MEDIA_URLS ='/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URLS ='/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
