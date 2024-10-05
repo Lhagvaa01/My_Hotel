@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
 import os
+from urllib.parse import urlparse
 
 from django.core.wsgi import get_wsgi_application
 from os import getenv
