@@ -9,11 +9,12 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
 from pathlib import Path
-from os import getenv
+import os
 from urllib.parse import urlparse
 
+from django.core.wsgi import get_wsgi_application
+from os import getenv
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,13 +36,13 @@ ALLOWED_HOSTS = ['*', '66.181.175.153', '.vercel.app']
 # Application definition
 
 INSTALLED_APPS = [
+    'myapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
     'rest_framework',
     'corsheaders',
     # 'rest_framework',
@@ -76,6 +77,7 @@ MIDDLEWARE = [
     'myapp.middleware.TokenExpirationMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
 ]
 
 ROOT_URLCONF = 'My_Hotel_Django.urls'
@@ -112,6 +114,9 @@ DATABASES = {
         'PASSWORD': tmpPostgres.password,
         'HOST': tmpPostgres.hostname,
         'PORT': 5432,
+        'OPTIONS': {
+          'sslmode': 'require',
+        },
     }
 }
 
