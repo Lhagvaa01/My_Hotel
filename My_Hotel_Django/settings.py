@@ -76,6 +76,7 @@ MIDDLEWARE = [
     'myapp.middleware.TokenExpirationMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
 ]
 
 ROOT_URLCONF = 'My_Hotel_Django.urls'
